@@ -1,11 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using S10UESAN_NCORE.Domain.Core.Interfaces;
+using S10UESAN_NCORE.Domain.Infrastructure.Data;
+using S10UESAN_NCORE.Domain.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +35,16 @@ namespace S10UESAN_NCORE.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "S10UESAN_NCORE.API", Version = "v1" });
             });
+
+            services.AddDbContext<SalesDBContext>(options =>
+            {
+                options.UseSqlServer(Configuration
+                    .GetConnectionString("DevConnection"));
+            });
+
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

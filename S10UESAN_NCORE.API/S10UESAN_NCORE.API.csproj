@@ -8,4 +8,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\S10UESAN_NCORE.Domain\S10UESAN_NCORE.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using S10UESAN_NCORE.Domain.Core.Entities;
+using S10UESAN_NCORE.Domain.Core.Interfaces;
 using S10UESAN_NCORE.Domain.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace S10UESAN_NCORE.Domain.Infrastructure.Repositories
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly SalesDBContext _context;
 
@@ -50,7 +51,7 @@ namespace S10UESAN_NCORE.Domain.Infrastructure.Repositories
         public async Task<bool> Delete(int id)
         {
             var customerNow = await _context.Customer.FindAsync(id);
-            if (customerNow==null)
+            if (customerNow == null)
                 return false;
 
             _context.Customer.Remove(customerNow);

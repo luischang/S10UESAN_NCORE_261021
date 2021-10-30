@@ -18,6 +18,8 @@ namespace S10UESAN_NCORE.Domain.Infrastructure.Mappings
             CreateMap<CustomerDTO, Customer>();
             CreateMap<CustomerCountryDTO, Customer>();
             CreateMap<Customer, CustomerCountryDTO>();
+            CreateMap<CustomerPostDTO, Customer>();
+            CreateMap<Customer, CustomerPostDTO>();
         }
 
 

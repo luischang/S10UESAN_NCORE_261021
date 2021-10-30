@@ -68,7 +68,7 @@ namespace S10UESAN_NCORE.API.Controllers
         {
             var customer = _mapper.Map<Customer>(customerDTO);
             await _customerRepository.Insert(customer);
-            return Ok(customer);
+            return Ok(customer.Id);
         }
 
         [HttpPut]
@@ -77,7 +77,7 @@ namespace S10UESAN_NCORE.API.Controllers
         {
             var customer = _mapper.Map<Customer>(customerDTO);
             await _customerRepository.Update(customer);
-            return Ok(customer);
+            return Ok(customer.Id);
         }
 
         [HttpDelete]

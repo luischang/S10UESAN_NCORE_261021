@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using S10UESAN_NCORE.Domain.Core.Interfaces;
 using S10UESAN_NCORE.Domain.Infrastructure.Data;
+using S10UESAN_NCORE.Domain.Infrastructure.Mappings;
 using S10UESAN_NCORE.Domain.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace S10UESAN_NCORE.API
 
             services.AddTransient<ICustomerRepository, CustomerRepository>();
 
+            services.AddAutoMapper(typeof(AutomapperProfile));
 
         }
 

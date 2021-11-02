@@ -44,7 +44,7 @@ namespace S10UESAN_NCORE.API.Controllers
             //    customersList.Add(customerDTO);
             //}
 
-            var customersList = _mapper.Map<IEnumerable<CustomerCountryDTO>>(customers);
+            var customersList = _mapper.Map<IEnumerable<CustomerDTO>>(customers);
 
             return Ok(customersList);
 
